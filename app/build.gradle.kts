@@ -74,41 +74,41 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
-    implementation ("androidx.compose.ui:ui:1.7.5")
-    implementation ("androidx.navigation:navigation-compose:2.8.3")
-    implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
-    implementation ("androidx.datastore:datastore-preferences:1.0.0")
+    implementation (libs.kotlinx.coroutines.android)
+    implementation (libs.ui)
+    implementation (libs.androidx.navigation.compose)
+    implementation (libs.androidx.hilt.navigation.compose)
+    implementation (libs.androidx.datastore.preferences)
     // Retrofit and Coroutines
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2")
+    implementation (libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.kotlinx.coroutines.core)
 
     // Dagger-Hilt for Dependency Injection
-    implementation ("com.google.dagger:hilt-android:2.49")
-    kapt ("com.google.dagger:hilt-android-compiler:2.49")
+    implementation (libs.hilt.android)
+    kapt (libs.hilt.android.compiler)
     // Image Caching
-    implementation ("io.coil-kt:coil-compose:2.4.0")
+    implementation (libs.coil.compose)
 
     // Testing
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
-    testImplementation("org.mockito:mockito-core:3.11.2")
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    testImplementation(libs.mockito.core.v3112)
     // Jetpack Compose UI Test
-    androidTestImplementation ("androidx.compose.ui:ui-test-junit4:1.7.5")
+    androidTestImplementation (libs.ui.test.junit4)
 
     // For using Compose UI tests with navigation
-    androidTestImplementation ("androidx.navigation:navigation-testing:2.8.4")
+    androidTestImplementation (libs.androidx.navigation.testing)
 
     // For using the testing rule
-    androidTestImplementation ("androidx.compose.ui:ui-test:1.7.5")
+    androidTestImplementation (libs.ui.test)
 
     // Jetpack Compose Test
-    testImplementation ("androidx.compose.ui:ui-test:1.7.5")
+    testImplementation (libs.ui.test)
 
     // Mockito for Mocking
-    testImplementation ("org.mockito:mockito-core:4.11.0")
-    testImplementation ("org.mockito.kotlin:mockito-kotlin:4.0.0")
-    testImplementation ("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.1")
-    testImplementation ("androidx.arch.core:core-testing:2.2.0")
+    testImplementation (libs.mockito.mockito.core)
+    testImplementation (libs.mockito.kotlin)
+    testImplementation (libs.kotlinx.coroutines.test)
+    testImplementation (libs.androidx.core.testing)
 }

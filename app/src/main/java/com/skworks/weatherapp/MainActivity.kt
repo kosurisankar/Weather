@@ -3,11 +3,13 @@ package com.skworks.weatherapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
+import androidx.compose.material3.Surface
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.rememberNavController
-import com.skworks.weatherapp.ui.screen.WeatherScreen
+import com.skworks.weatherapp.ui.screen.AppNavHost
+import com.skworks.weatherapp.viewmodel.WeatherViewModel
 import dagger.hilt.android.AndroidEntryPoint
+
 /**
  * The main entry point for the Android application.
  *
@@ -28,11 +30,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            val navController = rememberNavController()
-            NavHost(navController, startDestination = "search") {
-                composable("search") {
-                    WeatherScreen(navController)
-                }
+            val viewModel: WeatherViewModel = hiltViewModel()
+            Surface {
+                AppNavHost(viewModel = viewModel, navController = rememberNavController())
             }
         }
     }

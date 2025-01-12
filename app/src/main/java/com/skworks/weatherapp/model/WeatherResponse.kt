@@ -5,10 +5,13 @@ package com.skworks.weatherapp.model
  *
  * @property main Contains the main weather data
  * @property weather A list of weather conditions
+ * @property wind Contains the wind data
  */
 data class WeatherResponse(
     val main: Main,
-    val weather: List<Weather>
+    val weather: List<Weather>,
+    val wind: Wind,
+    val name: String
 )
 /**
  * Data class representing the main weather details.
@@ -19,6 +22,10 @@ data class WeatherResponse(
 data class Main(
     val temp: Float,
     val humidity: Int
+)
+
+data class Wind(
+    val speed : Float
 )
 /**
  * Data class representing a specific weather condition.

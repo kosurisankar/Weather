@@ -8,6 +8,7 @@ import androidx.navigation.compose.rememberNavController
 import com.skworks.weatherapp.model.Main
 import com.skworks.weatherapp.model.Weather
 import com.skworks.weatherapp.model.WeatherResponse
+import com.skworks.weatherapp.model.Wind
 import com.skworks.weatherapp.ui.screen.WeatherScreen
 import com.skworks.weatherapp.viewmodel.WeatherViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,7 +36,7 @@ class WeatherScreenTest {
         whenever(mockViewModel.cityName).thenReturn(cityNameFlow)
         // Setup the Compose UI for testing
         composeTestRule.setContent {
-            WeatherScreen(navController = rememberNavController())
+            WeatherScreen(navController = rememberNavController(), mockViewModel)
         }
     }
 
@@ -50,7 +51,7 @@ class WeatherScreenTest {
 
         // Set the content with mock ViewModel
         composeTestRule.setContent {
-            WeatherScreen(navController = rememberNavController())
+            WeatherScreen(navController = rememberNavController(), mockViewModel)
         }
         // Test that the TextField correctly displays the city name from the ViewModel
         composeTestRule.onNodeWithText("Houston").assertExists()
@@ -62,7 +63,9 @@ class WeatherScreenTest {
         whenever(mockViewModel.weatherState).thenReturn(
             WeatherResponse(
                 main = Main(temp = 25.0F, humidity = 60),
-                weather = listOf(Weather(description = "Clear", icon = "01d"))
+                weather = listOf(Weather(description = "Clear", icon = "01d")),
+                name = "Houston",
+                wind = Wind(speed = 22.3F)
             )
         )
         // Perform UI interaction or assertions
